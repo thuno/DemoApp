@@ -1,4 +1,4 @@
-import { Button, Text, View } from "react-native"
+import { Text, View } from "react-native"
 import { FButton, useDesignTokens } from "wini-mobile-component"
 
 export const HomePage = () => {
@@ -9,9 +9,5 @@ export const HomePage = () => {
             label="Change Theme"
             onPress={() => setTheme(th => th === 'light' ? 'dark' : 'light')}
         />
-        {/* <Button
-            title="Change Theme"
-            onPress={() => setTheme(th => th === 'light' ? 'dark' : 'light')}
-        /> */}
     </View>
 }

@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import { Stack, WiniProvider } from 'wini-mobile-component';
 import config from './src/config';
 import { HomePage } from './src/screen/page/home/home';
