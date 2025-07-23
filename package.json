@@ -28,7 +28,7 @@
     "react-native-screens": "^4.13.1",
     "react-native-skeleton-placeholder": "^5.2.4",
     "react-native-svg": "^15.12.0",
-    "wini-mobile-component": "^0.0.29"
+    "wini-mobile-component": "^0.0.30"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

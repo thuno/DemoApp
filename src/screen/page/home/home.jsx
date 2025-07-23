@@ -1,6 +1,6 @@
 import { useRef } from "react"
-import { Text, View } from "react-native"
-import { WBottomSheet, WButton, WButtonVariant, Winicon, useDesignTokens, Link, showBottomSheet, WCheckbox, useTranslation, showDialog, ComponentStatus, WImage } from "wini-mobile-component"
+import { ScrollView, Text, View } from "react-native"
+import { WBottomSheet, WButton, WButtonVariant, Winicon, useDesignTokens, Link, showBottomSheet, WCheckbox, useTranslation, showDialog, ComponentStatus, WImage, WRating, showSnackbar, WNumberPicker, WNumberPickerVariant, WRadioButton, WSwitch } from "wini-mobile-component"
 import { PagePath } from "../router"
 
 export const HomePage = () => {
@@ -8,7 +8,7 @@ export const HomePage = () => {
     const { colors, textStyles, setTheme } = useDesignTokens()
     const { i18n } = useTranslation()
 
-    return <View style={{ width: '100%', height: '100%', backgroundColor: colors["neutral-background-color-absolute"] }}>
+    return <ScrollView style={{ width: '100%', height: '100%', backgroundColor: colors["neutral-background-color-absolute"] }}>
         <WBottomSheet ref={bottomSheetRef} />
         <Text style={textStyles["heading-1"]}>HomePage</Text>
         <View style={{ flexDirection: "row", gap: 16 }}>
@@ -55,8 +55,41 @@ export const HomePage = () => {
             style={[WButtonVariant.warning, WButtonVariant.size40]}
         />
         <WImage
-            style={{ aspectRatio: 4 / 3 }}
             uri="https://dev.wini.vn/api/file/img/c6f1e7ebd34449bda0a61ceba0407de3"
+            style={{ margin: 16 }}
         />
-    </View>
+        <WNumberPicker
+            disabled
+            initValue={10}
+            style={[{ marginLeft: 16 }, WNumberPickerVariant.size40]}
+            volume={2.5}
+        />
+        <WRadioButton style={{ marginHorizontal: 16, marginVertical: 24 }} size={32} disabled checked />
+        <WRating size={40} style={{ margin: 16 }} value={4} />
+        <View style={{ flexDirection: "row", gap: 16 }}>
+            <WButton
+                label={"show error snackbar"}
+                onPress={() => {
+                    showSnackbar({
+                        message: "Snackbar message",
+                        label: "Snackbar label",
+                        status: ComponentStatus.ERROR
+                    })
+                }}
+                style={[textStyles["button-text-5"], WButtonVariant.error, WButtonVariant.size32, { flex: 1 }]}
+            />
+            <WButton
+                label={"show success snackbar"}
+                onPress={() => {
+                    showSnackbar({
+                        message: "Snackbar message",
+                        label: "Snackbar label",
+                        status: ComponentStatus.SUCCSESS
+                    })
+                }}
+                style={[textStyles["button-text-5"], WButtonVariant.success, WButtonVariant.size32, { flex: 1 }]}
+            />
+        </View>
+        <WSwitch size={60} />
+    </ScrollView>
 }
